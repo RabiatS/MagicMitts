@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2024-10-28T19:47:26Z",
+        "GenerationSoftware": {
+            "Application": "Fusion Electronics",
+            "Vendor": "Autodesk",
+            "Version": "9.7.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "MM Schematic v44"
+        },
+        "Owner": "John Navarro <john.navarro@my.utsa.edu>",
+        "Size": {
+            "X": 72.39,
+            "Y": 77.47
+        }
+    }
+}
