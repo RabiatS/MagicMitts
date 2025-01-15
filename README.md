@@ -45,10 +45,12 @@ experiences
 
 
 
-<img width="501" alt="image" src="https://github.com/user-attachments/assets/c873233b-de96-4d78-be20-8719c6a9b547">
+<img width="301" alt="image" src="https://github.com/user-attachments/assets/c873233b-de96-4d78-be20-8719c6a9b547">
+
 HatpX Glove
 
-<img width="501" alt="image" src="https://github.com/user-attachments/assets/17e569e5-572d-41ac-b6ee-b57a47197fc3">
+<img width="301" alt="image" src="https://github.com/user-attachments/assets/17e569e5-572d-41ac-b6ee-b57a47197fc3">
+
 Air Compressor Backpack
 
 
@@ -83,4 +85,4 @@ Software Flowchart
 
 
 ![Watch Video](https://www.youtube.com/watch?v=PxEuPJLgdlc)
-  
+
