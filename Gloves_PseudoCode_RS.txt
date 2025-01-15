@@ -1,0 +1,64 @@
+// Pseudo Code for Full Hand Control System with Electromagnetic Braking and ESP32
+
+// Initialization
+START 
+    SETUP ESP32 microcontroller
+    SETUP Power Pack (Dual 3.7V Battery Cells with Boost Converters)
+    INITIALIZE all 5 flex sensors connected to ESP32 GPIO
+    INITIALIZE electromagnetic braking system with boost converters and MOSFETs
+    SETUP Serial Communication between ESP32 and Unity
+    INITIALIZE all finger joint transforms in Unity
+    INITIALIZE interactable objects in Unity with appropriate colliders
+
+// Main Control Loop in ESP32
+LOOP ESP32
+    READ values from all 5 flex sensors (Thumb, Index, Middle, Ring, Pinky)
+    MAP sensor values to bending angles for each finger
+    SEND mapped angles to Unity via Serial in CSV format
+    CHECK for incoming commands from Unity:
+        IF command == "BRAKE":
+            ACTIVATE corresponding electromagnetic brake
+        ELSE IF command == "RELEASE":
+            DEACTIVATE all electromagnetic brakes
+        END IF
+END LOOP
+
+// Unity Main Loop
+LOOP Unity
+    READ sensor values from ESP32
+    PARSE CSV data into individual finger joint angles
+
+    // Apply Finger Movements
+    FOR each finger (Thumb, Index, Middle, Ring, Pinky)
+        APPLY rotation to each joint (Knuckle, Middle, Tip) based on sensor data
+    END FOR
+
+    // Check for Object Interactions
+    FOR each interactable object
+        IF hand collides with object
+            SEND "BRAKE" command to ESP32 to activate the specific electromagnetic brake
+        ELSE IF hand moves away from the object
+            SEND "RELEASE" command to ESP32 to deactivate the brake
+        END IF
+    END FOR
+END LOOP
+
+// Electromagnetic Braking System Controlled by ESP32
+IF "BRAKE" command received
+    ACTIVATE corresponding electromagnet via GPIO
+    CONTROL MOSFETs to drive current through the electromagnets using boost converters
+    WAIT for specific duration or until command is "RELEASE"
+    MAINTAIN braking force if contact is sustained
+END IF
+
+IF "RELEASE" command received
+    DEACTIVATE all electromagnets
+    TURN OFF boost converters to minimize power consumption
+END IF
+
+// Clean Up on Exit
+ON EXIT
+    CLOSE serial ports on ESP32 and Unity
+    DEACTIVATE all electromagnetic braking systems
+    POWER DOWN boost converters
+END
